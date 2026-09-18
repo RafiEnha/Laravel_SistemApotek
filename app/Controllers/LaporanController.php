@@ -11,29 +11,19 @@ class LaporanController extends BaseController
     $laporan = $db->table('obat o')
       ->select(
         '
-                o.id_obat,
-                o.kode_obat,
-                o.nama_obat,
-                o.satuan_obat,
-                o.harga_obat,
-                o.stock_obat,
+                o.id_obat, o.kode_obat,
+                o.nama_obat, o.satuan_obat,
+                o.harga_obat, o.stock_obat,
                 COALESCE(SUM(dt.jumlah), 0) AS total_terjual,
                 COALESCE(SUM(dt.subtotal), 0) AS total_penjualan
                 ',
         false
       )
       ->join(
-        'detail_transaksi dt',
-        'dt.id_obat = o.id_obat',
-        'left'
+        'detail_transaksi dt', 'dt.id_obat = o.id_obat', 'left'
       )
       ->groupBy([
-        'o.id_obat',
-        'o.kode_obat',
-        'o.nama_obat',
-        'o.satuan_obat',
-        'o.harga_obat',
-        'o.stock_obat',
+        'o.id_obat', 'o.kode_obat', 'o.nama_obat', 'o.satuan_obat', 'o.harga_obat', 'o.stock_obat',
       ])
       ->orderBy('o.nama_obat', 'ASC')
       ->get()

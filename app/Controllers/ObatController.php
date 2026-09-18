@@ -109,12 +109,7 @@ class ObatController extends BaseController
     $db = db_connect();
     $detailPenjualan = $db->table('detail_transaksi dt')
       ->select([
-        'dt.id_detail',
-        'dt.id_transaksi',
-        't.tanggal_transaksi',
-        'dt.jumlah',
-        'dt.harga',
-        'dt.subtotal',
+        'dt.id_detail', 'dt.id_transaksi', 't.tanggal_transaksi', 'dt.jumlah', 'dt.harga', 'dt.subtotal',
       ])
       ->join(
         'transaksi t',
