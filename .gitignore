@@ -1,0 +1,24 @@
+# CodeIgniter
+/system/Debug/
+writable/cache/*
+writable/logs/*
+writable/session/*
+writable/uploads/*
+writable/debugbar/*
+
+# Environment
+.env
+
+# Composer
+/vendor/
+
+# Node
+/node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
